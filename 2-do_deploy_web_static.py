@@ -9,6 +9,7 @@ import os
 import shlex
 env.hosts = ['54.160.102.228', '52.91.121.211']
 env.user = 'ubuntu'
+env.key_filename = '~/.ssh/rsa'
 
 
 def do_deploy(archive_path):
