@@ -1,11 +1,15 @@
 #!/usr/bin/python3
-""" Script that generates archive from contents of web static """
+"""
+Fabric script that generates an archive from the contents
+of web static folder
+"""
 from datetime import datetime
 from fabric.api import local
 import os
 
 
 def do_pack():
+    """ Generate tgs compress. """
     try:
         if not os.path.exists("versions"):
             local('mkdir versions')
