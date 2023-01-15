@@ -40,20 +40,20 @@ def path_python_custom(custom):
     return "Python {}".format(custom.replace('_', ' '))
 
 
-@app.route('/number/<int:number>', strict_slashes=False)
-def path_number_custom(number):
+@app.route('/number/<int:n>', strict_slashes=False)
+def path_number_custom(n):
     """
     Function that display custom number on screen.
     """
-    return "{} is a number".format(number)
+    return "{} is a number".format(n)
 
 
-@app.route('/number_template/<int:number>', strict_slashes=False)
-def path_number_template(number):
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def path_number_template(n):
     """
     Function that display custom number on screen.
     """
-    return render_template('5-number.html', number=n)
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == "__main__":
