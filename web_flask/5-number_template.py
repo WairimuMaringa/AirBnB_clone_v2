@@ -53,7 +53,7 @@ def path_number_template(number):
     """
     Function that display custom number on screen.
     """
-    return render_template('5-number.html', number=number)
+    return render_template('5-number.html', number=n)
 
 
 if __name__ == "__main__":
