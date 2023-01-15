@@ -8,52 +8,42 @@ app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def path():
-    """
-    Function to display text on screen.
-    """
+def hello_hbnb():
+    """ Function called with / route """
     return 'Hello HBNB!'
 
 
 @app.route('/hbnb', strict_slashes=False)
-def path_hbnb():
-    """
-    Function to display txt on screen.
-    """
+def hbnb():
+    """ Function called with /hbnb route """
     return 'HBNB'
 
 
-@app.route('/c/<custom>', strict_slashes=False)
-def path_c_custom(custom):
-    """
-    Function to display text on screen.
-    """
-    return 'C %s' % custom.replace('_', ' ')
+@app.route('/c/<text>', strict_slashes=False)
+def c_text(text):
+    """ Function called with /c/<text> route """
+    return 'C %s' % text.replace('_', ' ')
 
 
-@app.route('/python', defaults={'custom': 'is cool'}, strict_slashes=False)
-@app.route('/python/<path:custom>', strict_slashes=False)
-def path_python_custom(custom):
-    """
-    Function to display text on screen.
-    """
-    return "Python {}".format(custom.replace('_', ' '))
+@app.route('/python/', strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def python_text(text='is cool'):
+    """ Function called with /python/<text> route """
+    if text is not 'is cool':
+        text = text.replace('_', ' ')
+    return 'Python %s' % text
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
-def path_number_custom(n):
-    """
-    Function that display custom number on screen.
-    """
-    return "{} is a number".format(n)
+def number(n):
+    """ Function called with /number/<n> route """
+    return "%d is a number" % n
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
-def path_number_template(n):
-    """
-    Function that display custom number on screen.
-    """
-    return render_template('5-number.html', n=n)
+def number_template(n):
+    """ Function called with /number_template/<n> route """
+    return render_template('5-number.html', number=n)
 
 
 if __name__ == "__main__":
